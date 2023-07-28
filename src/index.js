@@ -1,3 +1,4 @@
 import './assets/styles/style.css'
-import { projects } from './project'
+import { Project } from './project'
 
+console.log(Project)

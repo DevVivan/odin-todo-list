@@ -1,13 +1,9 @@
-export function projects() {
-    const projects = [];
+export class Project{
+    constructor(name) {
+        this.name = name;
+    }
 
-    class Project{
-        constructor(name) {
-            this.name = name;
-        }
-
-        getName() {
-            return this.name;
-        }
+    getName() {
+        return this.name;
     }
 }
