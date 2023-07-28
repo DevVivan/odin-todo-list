@@ -27,23 +27,23 @@ export class Todo{
         return this.project;
     }
 
-    setTitle() {
+    setTitle(title) {
         this.title = title;
     }
 
-    setDescription() {
+    setDescription(description) {
         this.description = description;
     }
 
-    setDueDate() {
+    setDueDate(dueDate) {
         this.dueDate = dueDate
     }
 
-    setPriority() {
+    setPriority(priority) {
         this.priority = priority
     }
 
-    setProject() {
+    setProject(project) {
         this.project = project
     }
 }
