@@ -16,3 +16,4 @@ projects [ // An array to store all the projects
         ]
     }
 ]
+```
