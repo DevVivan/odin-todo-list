@@ -29,3 +29,14 @@ Users will be able to enter a name for the project. There will also be a default
 - `dueDate`: A property to allow users to enter a due date for the todo.
 - `priority`: A property to allow users to select the priority for a todo. This will range between
 - `project`: A property to allow users to select which project the todo should belong to. If left empty, it will resort to the project which is open on the user's screen.
+
+### Modules 
+
+- `projects.js`: A module for the projects.
+- `todos.js`: A module for the todos.
+- `DOM.js`: A module for all the DOM-related stuff to separate from application logic.
+
+## Links to take a look at
+
+- [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_classes)
+- [Building A House From The Inside Out](https://www.ayweb.dev/blog/building-a-house-from-the-inside-out)
