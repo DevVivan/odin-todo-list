@@ -1,3 +1,5 @@
+import { Todo } from "./todo";
+
 export class Project{
     constructor(name) {
         this.name = name;
