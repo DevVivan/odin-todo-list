@@ -32,9 +32,10 @@ Users will be able to enter a name for the project. There will also be a default
 
 ### Modules 
 
-- `projects.js`: A module for the projects.
-- `todos.js`: A module for the todos.
-- `DOM.js`: A module for all the DOM-related stuff to separate from application logic.
+- `project.js`: A module for the projects.
+- `todo.js`: A module for the todos.
+- `dom.js`: A module for all the DOM-related stuff to separate from application logic.
+- `storage.js`: A module for all to do with the `localStorage` side of things.
 
 ## Links to take a look at
 
