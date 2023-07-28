@@ -17,3 +17,11 @@ projects [ // An array to store all the projects
     }
 ]
 ```
+
+### Properties the todos will have
+
+- `title`: A property to allow users to enter a title for the todo.
+- `description`: A property to allow users to enter a brief description for the todo.
+- `dueDate`: A property to allow users to enter a due date for the todo.
+- `priority`: A property to allow users to select the priority for a todo. This will range between
+- `project`: A property to allow users to select which project the todo should belong to. If left empty, it will resort to the project which is open on the user's screen. 
