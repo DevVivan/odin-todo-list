@@ -1,3 +1,28 @@
+.container {
+	height: 100vh;
+	display: grid;
+	grid-template-rows: 10vh 1fr;
+	grid-template-columns: 1fr 3fr;
+}
+
+.header {
+	grid-row: span 1;
+	grid-column: span 2;
+	border: 2px solid black;
+}
+
+.sidebar {
+	grid-row: 2;
+	grid-column: 1;
+	border: 2px solid black;
+}
+
+.main-container {
+	grid-row: 2;
+	grid-column: 2;
+	border: 2px solid black;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
