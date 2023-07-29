@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&display=swap');
+
 :root {
 	--clr-accent: #004B8F;
 	--clr-text-darkest: #1E1E1E;
 	--clr-white: #FFFFFF;
 	--clr-body-gray: #EEEEEE;
 	--clr-text-light-gray: #949494;
-
 	--sidebar-left-margin: 6vh;
 }
 
@@ -13,6 +14,7 @@
 	display: grid;
 	grid-template-rows: 8vh 1fr;
 	grid-template-columns: 1fr 3fr;
+	font-family: 'Roboto Flex', sans-serif;
 }
 
 .header {
