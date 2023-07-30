@@ -7,18 +7,27 @@ export function createModalForms() {
 
     const newProjectButton = document.querySelector('.new-project-button');
     const newProjectModal = document.querySelector('.new-project-modal');
+    const closeProjectModalButton = document.querySelector('.close-project-modal')
 
     newProjectButton.addEventListener('click', () => {
-        newProjectModal.showModal()
+        newProjectModal.showModal();
+    })
+
+    closeProjectModalButton.addEventListener('click', () => {
+        newProjectModal.close();
     })
 
     // Modal for new todos
 
     const newTodoButton = document.querySelector('.new-todo-container');
     const newTodoModal = document.querySelector('.new-todo-modal');
+    const closeTodoModalButton = document.querySelector('.close-todo-modal')
 
     newTodoButton.addEventListener('click', () => {
         newTodoModal.showModal()
     })
 
+    closeTodoModalButton.addEventListener('click', () => {
+        newTodoModal.close();
+    })
 }
