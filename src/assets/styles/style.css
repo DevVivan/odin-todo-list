@@ -89,6 +89,38 @@
 	grid-row: 2;
 	grid-column: 1;
 	background-color: var(--clr-body-gray);
+	display: flex;
+	flex-direction: column;
+	gap: 1vh;
+}
+
+.new-project-button {
+	display: flex;
+	height: 4.5vh;
+	width: 35vh;
+	gap: 2vh;
+	color: var(--clr-text-light-gray);
+	justify-content: flex-start;
+	align-items: center;
+	font-size: 1rem;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+}
+
+.project-tabs {
+	margin-top: 2vh;
+}
+
+.new-project-container {
+	display: flex;
+	margin-left: var(--sidebar-left-margin);
+	height: 5vh;
+	width: 35vh;;
+}
+
+.new-project-button:hover {
+	background-color: rgba(0, 0, 0, 0.05);
 }
 
 .projects-sidebar-container {
