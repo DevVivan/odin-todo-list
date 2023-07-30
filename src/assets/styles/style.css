@@ -169,6 +169,16 @@
 	background-color: rgba(0, 0, 0, 0.1);
 }
 
+.new-project-modal {
+	height: 50vh;
+	width: 30vh;
+	z-index: 3;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	background-color: greenyellow;
+}
+
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,

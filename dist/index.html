@@ -4,9 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<script defer src="runtime.d8bd068fd826bcc314b2.js"></script><script defer src="bundle.26f7947f53d28e72cd42.js"></script></head>
+    <title>Todo List</title>
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <script src="https://kit.fontawesome.com/26f30a422d.js" crossorigin="anonymous"></script>
+<script defer src="runtime.0194a4d58610dc6122ce.js"></script><script defer src="bundle.b7a2255417f0028913ad.js"></script></head>
 <body>
-    
+    <div class="container">
+        <div class="header">
+            <h1 class="header-title">Todo List</h1>
+        </div>
+        <div class="sidebar">
+            <div class="default-tabs">
+                <div class="project-tab  current-project">
+                    <h3 class="project-sidebar-title">Inbox</h3>
+                </div>
+                <div class="project-tab">
+                    <h3 class="project-sidebar-title">Completed</h3>
+                </div>
+            </div>
+            <div class="projects-sidebar-container">
+                <div class="projects-sidebar-header-container">
+                    <h2 class="projects-sidebar-header">Projects</h2>
+                    <hr class="sidebar-hr">
+                </div>
+                <div class="project-tabs">
+                    <div class="project-tab">
+                        <h3 class="project-sidebar-title">Example Project</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="new-project-container">
+                <button class="new-project-button">
+                    <i class="fa-solid fa-plus"></i>
+                    <p>New project</p>
+                </button>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="content-header-container">
+                <h1 class="content-title">Inbox</h1>
+                <div class="new-todo-container"><i class="fa-solid fa-plus fa-lg fa-2x new-todo-button"></i></div>
+            </div>
+            <hr class="content-hr">
+        </div>
+    </div>
+    <dialog class="new-project-modal"></dialog>
+    <dialog class="new-todo-modal"></dialog>
 </body>
 </html>
