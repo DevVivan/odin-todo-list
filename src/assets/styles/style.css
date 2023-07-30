@@ -183,8 +183,8 @@
 }
 
 .new-todo-modal {
-	height: 50vh;
-	width: 45vh;
+	height: 55vh;
+	width: 50vh;
 	z-index: 3;
 	position: absolute;
 	top: 0;
@@ -214,15 +214,20 @@
 }
 
 .modal-header-container {
-	padding: 1vh;
+	height: 5vh;
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	border: 2px solid black;
+	align-self: center;
 }
 
 .form-input-container {
 	display: flex;
 	flex-direction: column;
+	height: 5vh;
+	width: 100%;
 }
 
 .modal-title {
