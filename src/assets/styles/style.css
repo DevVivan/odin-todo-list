@@ -27,7 +27,7 @@
 
 .project-tab {
 	margin-left: var(--sidebar-left-margin);
-	width: 32vh;
+	width: 35vh;
 	height: 4vh;
 	display: flex;
 	align-items: center;
@@ -41,8 +41,33 @@
 	color: var(--clr-text-darkest);
 }
 
+.projects-sidebar-header {
+	font-size: 1.5rem;
+	margin-left: var(--sidebar-left-margin);
+}
+
+.sidebar-hr {
+	width: 35vh;
+	margin-left: var(--sidebar-left-margin);
+	outline: none;
+	border: 0.5px solid var(--clr-text-darkest) ;
+}
+
 .current-project {
 	background-color: #D7D7D7;
+	font-weight: 700;
+}
+
+.default-tabs {
+	display: flex;
+	flex-direction: column;
+	gap: 1vh;
+}
+
+.project-tabs {
+	display: flex;
+	flex-direction: column;
+	gap: 1vh;
 }
 
 .header-title {
