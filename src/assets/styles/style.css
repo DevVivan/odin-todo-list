@@ -170,13 +170,33 @@
 }
 
 .new-project-modal {
-	height: 50vh;
-	width: 30vh;
+	height: 30vh;
+	width: 50vh;
 	z-index: 3;
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	background-color: greenyellow;
+	background-color: var(--clr-white);
+	border: none;
+	border-radius: 10px;
+	outline: none;
+}
+
+.new-todo-modal {
+	height: 50vh;
+	width: 45vh;
+	z-index: 3;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	background-color: var(--clr-white);
+	border: none;
+	border-radius: 10px;
+	outline: none;
+}
+
+.modal::backdrop {
+	background-color: rgb(0, 0, 0, 0.5);
 }
 
 
