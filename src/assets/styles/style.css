@@ -215,19 +215,50 @@
 
 .modal-header-container {
 	height: 5vh;
-	width: 100%;
+	width: 49vh;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	border: 2px solid black;
-	align-self: center;
 }
 
 .form-input-container {
 	display: flex;
 	flex-direction: column;
-	height: 5vh;
+	gap: 1vh;
 	width: 100%;
+}
+
+.form-label {
+	color: var(--clr-text-darkest);
+	font-size: 1.1rem;
+}
+
+.form-input {
+	height: 4vh;
+	outline: none;
+	border: 1px solid var(--clr-text-darkest);
+	border-radius: 5px;
+	font-size: 1rem;
+	color: var(--clr-text-darkest);
+	opacity: 0.9;
+	padding-left: 1vh;
+}
+
+.new-project-form {
+	display: flex;
+	flex-direction: column;
+	gap: 2vh;
+	margin-top: 3vh;
+}
+
+.create-project-button {
+	height: 6vh;
+	font-size: 1.2rem;
+	color: var(--clr-white);
+	background-color: var(--clr-accent);
+	outline: none;
+	border: none;
+	border-radius: 5px;
 }
 
 .modal-title {
