@@ -170,7 +170,7 @@
 }
 
 .new-project-modal {
-	height: 30vh;
+	height: 26vh;
 	width: 50vh;
 	z-index: 3;
 	position: absolute;
@@ -215,7 +215,7 @@
 
 .modal-header-container {
 	height: 5vh;
-	width: 49vh;
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -260,6 +260,10 @@
 	border: none;
 	border-radius: 5px;
 }
+
+/* .create-project-button:hover {
+
+} */
 
 .modal-title {
 	font-size: 1.5rem;
