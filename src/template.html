@@ -80,6 +80,22 @@
                     <label class="form-label" for="todo-due-date">Due Date:</label>
                     <input required class="form-input-due-date form-input" required name="todo-due-date" id="todo-due-date" type="date">
                 </div>
+                <div class="double-form-inputs">
+                    <div class="form-input-container">
+                        <label class="form-label" for="todo-priority">Priority:</label>
+                        <select class="form-input form-input-half" name="todo-priority" id="todo-priority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="form-input-container">
+                        <label class="form-label" for="todo-project">Project:</label>
+                        <select class="form-input form-input-half" name="todo-project" id="todo-project">
+                            <option value="example-project">Example Project</option>
+                        </select>
+                    </div>
+                </div>
                 <button class="create-todo-button create-button" type="submit">Create Todo</button>
             </form>
         </dialog>

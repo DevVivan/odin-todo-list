@@ -244,6 +244,14 @@
 	padding-left: 1vh;
 }
 
+.form-input-half {
+	width: 95%;
+}
+
+.double-form-inputs {
+	display: flex;
+}
+
 .modal-form {
 	display: flex;
 	flex-direction: column;
