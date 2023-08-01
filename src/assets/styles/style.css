@@ -244,14 +244,14 @@
 	padding-left: 1vh;
 }
 
-.new-project-form {
+.modal-form {
 	display: flex;
 	flex-direction: column;
 	gap: 2vh;
 	margin-top: 3vh;
 }
 
-.create-project-button {
+.create-button {
 	height: 6vh;
 	font-size: 1.2rem;
 	color: var(--clr-white);
@@ -259,11 +259,8 @@
 	outline: none;
 	border: none;
 	border-radius: 5px;
+	width: 100%;
 }
-
-/* .create-project-button:hover {
-
-} */
 
 .modal-title {
 	font-size: 1.5rem;
@@ -272,6 +269,18 @@
 .modal-hr {
 	outline: none;
 	border: 0.5px solid var(--clr-text-light-gray);
+}
+
+.form-input-textarea {
+	outline: none;
+	border: 1px solid var(--clr-text-darkest);
+	border-radius: 5px;
+	font-size: 1rem;
+	color: var(--clr-text-darkest);
+	opacity: 0.9;
+	padding-left: 1vh;
+	font-family: 'Roboto Flex', sans-serif;
+	padding-top: 1vh;
 }
 
 

@@ -58,7 +58,7 @@
                     <label class="form-label" for="project-name">Name:</label>
                     <input class="form-input" required name="project-name" id="project-name" type="text">
                 </div>
-                <button class="create-project-button" type="submit">Create Project</button>
+                <button class="create-project-button create-button" type="submit">Create Project</button>
             </form>
         </dialog>
         <dialog class="new-todo-modal modal">
@@ -68,7 +68,15 @@
             </div>
             <hr class="modal-hr">
             <form action="" class="new-todo-form modal-form">
-
+                <div class="form-input-container">
+                    <label class="form-label" for="todo-title">Title:</label>
+                    <input class="form-input" required name="todo-title" id="todo-title" type="text">
+                </div>
+                <div class="form-input-container">
+                    <label class="form-label" for="todo-description">Description:</label>
+                    <textarea class="form-input-textarea" name="todo-description" id="todo-description" cols="30" rows="5"></textarea>
+                </div>
+                <button class="create-todo-button create-button" type="submit">Create Todo</button>
             </form>
         </dialog>
     </div>
