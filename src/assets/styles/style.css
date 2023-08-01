@@ -203,14 +203,14 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 25px;
-	width: 25px;
+	height: 30px;
+	width: 30px;
 	border-radius: 5px;
 	color: var(--clr-text-light-gray);
 }
 
 .icon-div:hover {
-	background-color: rgb(0, 0, 0, 0.2);
+	background-color: rgb(0, 0, 0, 0.1);
 }
 
 .modal-header-container {
@@ -283,6 +283,9 @@
 	padding-top: 1vh;
 }
 
+.form-input-due-date {
+	font-family: 'Roboto Flex', sans-serif;
+}
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
