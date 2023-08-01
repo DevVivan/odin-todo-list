@@ -224,7 +224,7 @@
 .form-input-container {
 	display: flex;
 	flex-direction: column;
-	gap: 1vh;
+	gap: 0.7vh;
 	width: 100%;
 }
 
@@ -234,7 +234,7 @@
 }
 
 .form-input {
-	height: 4vh;
+	height: 3.8vh;
 	outline: none;
 	border: 1px solid var(--clr-text-darkest);
 	border-radius: 5px;
