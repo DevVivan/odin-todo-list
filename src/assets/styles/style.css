@@ -183,7 +183,7 @@
 }
 
 .new-todo-modal {
-	height: 59vh;
+	height: 60vh;
 	width: 50vh;
 	z-index: 3;
 	position: absolute;
