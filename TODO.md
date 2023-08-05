@@ -15,6 +15,7 @@ This markdown file serves as a todo list, well, for my todo list project! It aid
 - [ ] Change width of `<hr>` tags in modals to take up the full width of the modal container.
 - [ ] Create custom property for `text dark` and utilise it where required.
 - [ ] Basic responsiveness for when in and not in chrome's full page view.
+- [ ] Fix new todo modal height issues for when changing view size.
 - [ ] Create modal entry and exit animations.
 
 ## HTML Todo's
