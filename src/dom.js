@@ -1,7 +1,6 @@
 import { Project } from './project'
 import { Todo } from './todo'
 import './assets/styles/style.css'
-import { createModalForms } from '.'
 
 export function createContentUsingDOM() {
     const projectTabs = document.querySelector('.project-tabs')
