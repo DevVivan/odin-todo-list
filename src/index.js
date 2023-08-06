@@ -1,8 +1,9 @@
 import { Project } from './project'
 import { Todo } from './todo'
 import './assets/styles/style.css'
+import { createContentUsingDOM } from './dom';
 
-let projects = [];
+let projects = [new Project('Web Development')];
 
 export function createModalForms() {
     // Modal for new projects
@@ -35,3 +36,4 @@ export function createModalForms() {
 }
 
 createModalForms()
+createContentUsingDOM();
