@@ -36,4 +36,4 @@ export function createModalForms() {
 }
 
 createModalForms()
-createContentUsingDOM();
+createContentUsingDOM(projects);
