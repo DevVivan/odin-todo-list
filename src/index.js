@@ -7,6 +7,7 @@ let projects = [new Project('Web Development')];
 const newProjectForm = document.querySelector('.new-project-form');
 const projectTabs = document.querySelector('.project-tabs');
 const newProjectModal = document.querySelector('.new-project-modal');
+const projectTab = document.querySelector('.project-tab');
 
 export function createModalForms() {
     // Modal for new projects

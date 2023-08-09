@@ -15,5 +15,9 @@ export function createContentUsingDOM(projects) {
         
         projectTab.appendChild(projectTitle);
         projectTabs.appendChild(projectTab);
+
+        projectTab.addEventListener('click', () => {
+            console.log('A project has been clicked.')
+        })
     });
 }
