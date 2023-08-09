@@ -12,7 +12,7 @@ export function createModalForms() {
     const newProjectModal = document.querySelector('.new-project-modal');
     const newProjectForm = document.querySelector('.new-project-form');
     const closeProjectModalButton = document.querySelector('.close-project-modal');
-    const createProjectButton = document.querySelector('.create-project-button');
+    const projectTabs = document.querySelector('.project-tabs');
 
     newProjectButton.addEventListener('click', () => {
         newProjectModal.showModal();
@@ -22,8 +22,14 @@ export function createModalForms() {
         newProjectModal.close();
     })
 
-    newProjectButton.addEventListener('submit', (event) => {
+    newProjectForm.addEventListener('submit', (event) => {
+        newProjectModal.close();
         event.preventDefault();
+        let projectName = document.getElementById("project-name");
+        projectName = projectName.value;
+        projects.push(new Project(projectName))
+        projectTabs.innerHTML = '';
+        createContentUsingDOM(projects);
     })
 
     // Modal for new todos
