@@ -10,6 +10,7 @@ export function createModalForms() {
 
     const newProjectButton = document.querySelector('.new-project-button');
     const newProjectModal = document.querySelector('.new-project-modal');
+    const newProjectForm = document.querySelector('.new-project-form');
     const closeProjectModalButton = document.querySelector('.close-project-modal');
     const createProjectButton = document.querySelector('.create-project-button');
 
@@ -21,8 +22,8 @@ export function createModalForms() {
         newProjectModal.close();
     })
 
-    createProjectButton.addEventListener('click', () => {
-        // create the project and add to array
+    newProjectButton.addEventListener('submit', (event) => {
+        event.preventDefault();
     })
 
     // Modal for new todos
