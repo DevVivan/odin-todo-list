@@ -7,10 +7,10 @@ export function createContentUsingDOM(projects) {
     
     projects.forEach(project => {
         const projectTab = document.createElement('div');
-        projectTab.classList.add = 'project-tab';
+        projectTab.className = 'project-tab';
         
         const projectTitle = document.createElement('h3');
-        projectTitle.classList.add = 'project-sidebar-title';
+        projectTitle.className = 'project-sidebar-title';
         projectTitle.textContent = project.getName();
         
         projectTab.appendChild(projectTitle);
@@ -44,8 +44,6 @@ export function createContentUsingDOM(projects) {
             let contentHr = document.createElement('hr');
             contentHr.classList.add('content-hr')
             mainContainer.appendChild(contentHr);
-
-            console.log('A project has been clicked.')
         })
     });
 }
