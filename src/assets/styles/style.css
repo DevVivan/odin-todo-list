@@ -317,6 +317,7 @@
 	width: 125vh;
 	margin-left: var(--sidebar-left-margin);
 	filter: brightness(97%);
+	overflow: scroll;
 }
 
 html, body, div, span, applet, object, iframe,
