@@ -70,7 +70,6 @@ export function createTodos() {
         if (activeProject) {
             activeProject.addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
         }
-        
     })
 }
  
