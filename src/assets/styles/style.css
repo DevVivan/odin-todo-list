@@ -303,6 +303,22 @@
 	font-family: 'Roboto Flex', sans-serif;
 }
 
+.todo-tabs {
+	display: flex;
+	flex-direction: column;
+	margin-top: 5vh;
+	gap: 1.5vh;
+}
+
+.todo-tab {
+	border-radius: 5px;
+	background-color: var(--clr-body-gray);
+	height: 7vh;
+	width: 125vh;
+	margin-left: var(--sidebar-left-margin);
+	filter: brightness(97%);
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
