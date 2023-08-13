@@ -1,6 +1,7 @@
 import { Project } from './project'
 import { Todo } from './todo'
 import './assets/styles/style.css'
+import { createModalForms } from '.';
 
 export function createContentUsingDOM(projects) {
     const projectTabs = document.querySelector('.project-tabs');
@@ -44,6 +45,8 @@ export function createContentUsingDOM(projects) {
             let contentHr = document.createElement('hr');
             contentHr.classList.add('content-hr')
             mainContainer.appendChild(contentHr);
+
+            createModalForms()
 
             // remove the current-project classlist from all projects
             // whichever project was clicked, add the classlist of current-project to it
