@@ -64,9 +64,13 @@ export function createTodos() {
         let todoDueDate = document.getElementById("todo-due-date").value;
         let todoPriority = document.getElementById("todo-priority").value;
         let todoProject = document.getElementById("todo-project").value;
-        let project = projects[0]
-        project.addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject))
-        console.log(projects)
+
+        let activeProject = projects.find(project => project.active);
+        
+        if (activeProject) {
+            activeProject.addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
+        }
+        
     })
 }
  

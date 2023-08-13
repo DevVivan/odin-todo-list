@@ -18,6 +18,14 @@ export function createContentUsingDOM(projects) {
         projectTabs.appendChild(projectTab);
 
         projectTab.addEventListener('click', () => {
+            const clickedProject = projects.find(p => p.getName() === project.getName());
+            projects.forEach(otherProject => {
+                if (otherProject.getName() !== clickedProject.getName()) {
+                    otherProject.setActive(false)
+                }
+            });
+            clickedProject.setActive(true);
+
             let mainContainer = document.querySelector('.main-container');
             mainContainer.innerHTML = ''
 
