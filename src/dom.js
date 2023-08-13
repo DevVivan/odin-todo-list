@@ -46,7 +46,7 @@ export function createContentUsingDOM(projects) {
             contentHr.classList.add('content-hr')
             mainContainer.appendChild(contentHr);
 
-            createModalForms()
+            createModalForms();
 
             // remove the current-project classlist from all projects
             // whichever project was clicked, add the classlist of current-project to it

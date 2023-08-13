@@ -5,8 +5,10 @@ import { createContentUsingDOM } from './dom';
 
 let projects = [new Project('Web Development')];
 const newProjectForm = document.querySelector('.new-project-form');
+const newTodoForm = document.querySelector('.new-todo-form');
 const projectTabs = document.querySelector('.project-tabs');
 const newProjectModal = document.querySelector('.new-project-modal');
+const newTodoModal = document.querySelector('.new-todo-modal');
 const projectTab = document.querySelector('.project-tab');
 
 export function createModalForms() {
@@ -26,7 +28,6 @@ export function createModalForms() {
     // Modal for new todos
 
     const newTodoButton = document.querySelector('.new-todo-container');
-    const newTodoModal = document.querySelector('.new-todo-modal');
     const closeTodoModalButton = document.querySelector('.close-todo-modal');
     const createTodoButton = document.querySelector('.create-todo-button');
 
@@ -47,14 +48,27 @@ export function createProjects() {
     newProjectForm.addEventListener('submit', (event) => {
         newProjectModal.close();
         event.preventDefault();
-        let projectName = document.getElementById("project-name");
-        projectName = projectName.value;
+        let projectName = document.getElementById("project-name").value;
         projects.push(new Project(projectName))
         projectTabs.innerHTML = '';
         createContentUsingDOM(projects);
     })
 }
 
+export function createTodos() {
+    newTodoForm.addEventListener('submit', (event) => {
+        newTodoModal.close();
+        event.preventDefault();
+        let todoTitle = document.getElementById("todo-title").value;
+        let todoDescription = document.getElementById("todo-description").value;
+        let todoDueDate = document.getElementById("todo-due-date").value;
+        let todoPriority = document.getElementById("todo-priority").value;
+        let todoProject = document.getElementById("todo-project").value;
+        console.log(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject)
+    })
+}
+ 
 createModalForms()
 createProjects()
+createTodos()
 createContentUsingDOM(projects);
