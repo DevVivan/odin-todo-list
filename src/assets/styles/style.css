@@ -336,10 +336,33 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	gap: 1vh;
+}
+
+.todo-icon {
+	color: var(--clr-text-light-gray);
+	font-size: 1.05rem;
 }
 
 .todo-info {
 	color: var(--clr-text-dark);
+}
+
+.todo-icon-container {
+	height: 3.5vh;
+	width: 3.5vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+}
+
+.todo-icon-container:hover {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.todo-icons {
+	display: flex;
 }
 
 html, body, div, span, applet, object, iframe,
