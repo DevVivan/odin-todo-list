@@ -3,6 +3,7 @@
 :root {
 	--clr-accent: #004B8F;
 	--clr-text-darkest: #1E1E1E;
+	--clr-text-dark: #2F2F2F;
 	--clr-white: #FFFFFF;
 	--clr-body-gray: #EEEEEE;
 	--clr-text-light-gray: #949494;
@@ -318,6 +319,27 @@
 	margin-left: var(--sidebar-left-margin);
 	filter: brightness(97%);
 	overflow: scroll;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	gap: 80vh;
+}
+
+.todo-content-left {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1vh;
+}
+
+.todo-content-right {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.todo-info {
+	color: var(--clr-text-dark);
 }
 
 html, body, div, span, applet, object, iframe,
