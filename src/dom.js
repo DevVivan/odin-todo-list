@@ -58,6 +58,13 @@ export function createContentUsingDOM(projects) {
 
             // remove the current-project classlist from all projects
             // whichever project was clicked, add the classlist of current-project to it
+
+            (function createTodos() {
+                console.log(project.todos)
+                project.todos.forEach(todo => {
+                    // create todos
+                })
+            })();
         })
     });
 }
