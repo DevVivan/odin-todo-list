@@ -60,11 +60,74 @@ export function createContentUsingDOM(projects) {
             // whichever project was clicked, add the classlist of current-project to it
 
             (function createTodos() {
-                console.log(project.todos)
                 project.todos.forEach(todo => {
-                    // create todos
+                    let todoTabs = document.querySelector('.todo-tabs');
+                    if (!todoTabs) {
+                        todoTabs = document.createElement('div');
+                        todoTabs.classList.add('todo-tabs');
+                        mainContainer.appendChild(todoTabs);
+                    }
+
+                    let todoTab = document.createElement('div');
+                    todoTab.classList.add('todo-tab');
+                    todoTabs.appendChild(todoTab);
+
+                    let todoContentLeft = document.createElement('div')
+                    todoContentLeft.classList.add('todo-content-left')
+                    todoTab.appendChild(todoContentLeft);
+
+                    let todoContentRight = document.createElement('div')
+                    todoContentRight.classList.add('todo-content-right')
+                    todoTab.appendChild(todoContentRight);
+
+                    let todoCompletedCheckbox = document.createElement('input');
+                    todoCompletedCheckbox.setAttribute('type', 'checkbox')
+                    todoCompletedCheckbox.setAttribute('name', 'todo-completed-checkbox')
+                    todoCompletedCheckbox.classList.add('todo-completed-checkbox')
+                    todoContentLeft.appendChild(todoCompletedCheckbox)   
+
+                    let todoTitle = document.createElement('p')
+                    todoTitle.classList.add('todo-title')
+                    todoTitle.classList.add('todo-info')
+                    todoTitle.textContent = todo.title;
+                    todoContentLeft.appendChild(todoTitle)
+
+                    // <p class="todo-due-date todo-info">29/7/2023</p>
+                    // <div class="todo-icons">
+                    //     <div class="todo-icon-container"><i class="fa-solid fa-pen-to-square todo-icon"></i></div>
+                    //     <div class="todo-icon-container"><i class="fa-solid fa-trash-can todo-icon"></i></div>
+                    // </div>
+                   
+                    let todoDueDate = document.createElement('p')
+                    todoDueDate.classList.add('todo-due-date')
+                    todoDueDate.classList.add('todo-info')
+                    todoDueDate.textContent = todo.dueDate;
+                    todoContentRight.appendChild(todoDueDate)
+
+                    let todoIcons = document.createElement('div')
+                    todoContentRight.appendChild(todoIcons)
+
+                    let todoIconContainerEdit = document.createElement('div')
+                    todoIconContainerEdit.classList.add('todo-icon-container')
+                    todoIcons.appendChild(todoIconContainerEdit)
+
+                    let todoIconEdit = document.createElement('i')
+                    todoIconEdit.classList.add('fa-solid')
+                    todoIconEdit.classList.add('fa-pen-to-square')
+                    todoIconEdit.classList.add('todo-icon')
+                    todoIconContainerEdit.appendChild(todoIconEdit)
+
+                    let todoIconContainerDelete = document.createElement('div')
+                    todoIconContainerDelete.classList.add('todo-icon-container')
+                    todoIcons.appendChild(todoIconContainerDelete)
+
+                    let todoIconDelete = document.createElement('i')
+                    todoIconDelete.classList.add('fa-solid')
+                    todoIconDelete.classList.add('fa-trash-can')
+                    todoIconDelete.classList.add('todo-icon')
+                    todoIconContainerDelete.appendChild(todoIconDelete)
                 })
-            })();
+            })()
         })
     });
 }

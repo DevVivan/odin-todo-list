@@ -3,7 +3,7 @@ import { Todo } from './todo'
 import './assets/styles/style.css'
 import { createContentUsingDOM } from './dom';
 
-let projects = [new Project('Web Development')];
+let projects = [new Project('Web Development'), new Project('School')];
 const newProjectForm = document.querySelector('.new-project-form');
 const newTodoForm = document.querySelector('.new-todo-form');
 const projectTabs = document.querySelector('.project-tabs');
@@ -70,6 +70,9 @@ export function createTodos() {
         if (activeProject) {
             activeProject.addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
         }
+        
+        projectTabs.innerHTML = '';
+        createContentUsingDOM(projects)
     })
 }
 
