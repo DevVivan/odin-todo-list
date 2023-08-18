@@ -7,8 +7,10 @@ let projects = [new Project('Web Development'), new Project('School')];
 const newProjectForm = document.querySelector('.new-project-form');
 const newTodoForm = document.querySelector('.new-todo-form');
 const projectTabs = document.querySelector('.project-tabs');
+const todoTabs = document.querySelector('.todo-tabs');
 const newProjectModal = document.querySelector('.new-project-modal');
 const newTodoModal = document.querySelector('.new-todo-modal');
+const createTodoButton = document.querySelector('.create-todo-button');
 const projectTab = document.querySelector('.project-tab');
 
 export function createModalForms() {
@@ -29,7 +31,6 @@ export function createModalForms() {
 
     const newTodoButton = document.querySelector('.new-todo-container');
     const closeTodoModalButton = document.querySelector('.close-todo-modal');
-    const createTodoButton = document.querySelector('.create-todo-button');
 
     newTodoButton.addEventListener('click', () => {
         newTodoModal.showModal()
@@ -69,12 +70,13 @@ export function createTodos() {
         
         if (activeProject) {
             activeProject.addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
+            projectTabs.innerHTML = '';
+            // change todo tabs for active project innerhtml to ' ';
+            createContentUsingDOM(projects);
         }
-        
-        projectTabs.innerHTML = '';
-        createContentUsingDOM(projects)
     })
 }
+
 
 projects[0].todos.push(new Todo('hi', 'hihihihihi', '2023/8/5', 1, 'hi'), new Todo('byebyebye', 'byebyebyebye', '2023/8/7',  'bye'))
  
