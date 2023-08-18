@@ -17,7 +17,11 @@ export class Project{
         }
     }
 
-    setActive(active) {
-        this.active = active;
+    setActive(isActive) {
+        this.active = isActive;
+    }
+
+    isActive() {
+        return this.active;
     }
 }

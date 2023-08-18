@@ -20,10 +20,17 @@ export function createProjectsWithDOM(projects) {
 
         projectTab.addEventListener('click', () => {
             projectTabs.querySelectorAll('.project-tab').forEach(tab => {
-                tab.classList.remove('current-project');
+                tab.classList.remove('current-project', 'active');
             });
+        
+            projectTab.classList.add('current-project', 'active');
 
-            projectTab.classList.add('current-project');
+            projects.forEach(otherProject => {
+                if (otherProject !== project) {
+                    otherProject.setActive(false);
+                }
+            });
+            project.setActive(true);
 
             mainContainer.innerHTML = '';
 

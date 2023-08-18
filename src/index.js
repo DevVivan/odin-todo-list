@@ -1,6 +1,6 @@
-import { Project } from './project'
-import { Todo } from './todo'
-import './assets/styles/style.css'
+import { Project } from './project';
+import { Todo } from './todo';
+import './assets/styles/style.css';
 import { createProjectsWithDOM } from './dom';
 import { createTodosWithDOM } from './dom';
 
@@ -16,35 +16,31 @@ const projectTab = document.querySelector('.project-tab');
 const mainContainer = document.querySelector('.main-container');
 
 export function createModalForms() {
-    // Modal for new projects
-
     const newProjectButton = document.querySelector('.new-project-button');
     const closeProjectModalButton = document.querySelector('.close-project-modal');
 
     newProjectButton.addEventListener('click', () => {
         newProjectModal.showModal();
-    })
+    });
 
     closeProjectModalButton.addEventListener('click', () => {
         newProjectModal.close();
-    })
-
-    // Modal for new todos
+    });
 
     const newTodoButton = document.querySelector('.new-todo-container');
     const closeTodoModalButton = document.querySelector('.close-todo-modal');
 
     newTodoButton.addEventListener('click', () => {
-        newTodoModal.showModal()
-    })
+        newTodoModal.showModal();
+    });
 
     closeTodoModalButton.addEventListener('click', () => {
         newTodoModal.close();
-    })
+    });
 
     createTodoButton.addEventListener('click', () => {
-        // create todo and add to specific projects todos array.
-    })
+        // Create todo and add to specific project's todos array.
+    });
 }
 
 export function createProjects() {
@@ -52,10 +48,10 @@ export function createProjects() {
         newProjectModal.close();
         event.preventDefault();
         let projectName = document.getElementById("project-name").value;
-        projects.push(new Project(projectName))
+        projects.push(new Project(projectName));
         projectTabs.innerHTML = '';
         createProjectsWithDOM(projects);
-    })
+    });
 }
 
 export function createTodos() {
@@ -67,29 +63,20 @@ export function createTodos() {
         let todoDueDate = document.getElementById("todo-due-date").value;
         let todoPriority = document.getElementById("todo-priority").value;
         let todoProject = document.getElementById("todo-project").value;
-
+        
         let activeProject = projects.find(project => project.active);
         
         if (activeProject) {
             activeProject.addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
-            projectTabs.innerHTML = '';
-            
-            let activeProjectTodoTabs = document.querySelector('.project-tab.active');
-            if (activeProjectTodoTabs) {
-                activeProjectTodoTabs.innerHTML = '';
-            }
-
-            //add classlist of 'active' to project tab which is active and has current-tab class
-            createProjectsWithDOM(projects)
-            createTodosWithDOM(activeProject, mainContainer)
+            todoTabs.innerHTML = '';
+            createTodosWithDOM(activeProject, mainContainer); 
         }
-    })
+    });
 }
 
-
-projects[0].todos.push(new Todo('hi', 'hihihihihi', '2023/8/5', 1, 'hi'), new Todo('byebyebye', 'byebyebyebye', '2023/8/7',  'bye'))
+projects[0].todos.push(new Todo('hi', 'hihihihihi', '2023/8/5', 1, 'hi'), new Todo('byebyebye', 'byebyebyebye', '2023/8/7',  'bye'));
  
-createModalForms()
-createProjects()
-createTodos()
+createModalForms();
+createProjects();
+createTodos();
 createProjectsWithDOM(projects);
