@@ -312,58 +312,59 @@
 }
 
 .todo-tab {
-	border-radius: 5px;
-	background-color: var(--clr-body-gray);
-	height: 7vh;
-	width: 125vh;
-	margin-left: var(--sidebar-left-margin);
-	filter: brightness(97%);
-	overflow: scroll;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	gap: 80vh;
+    border-radius: 5px;
+    background-color: var(--clr-body-gray);
+    height: 7vh;
+    width: 125vh;
+    margin-left: var(--sidebar-left-margin);
+    filter: brightness(97%);
+    overflow: hidden; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items: center;
 }
 
 .todo-content-left {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 1vh;
+    display: flex;
+    align-items: center; 
+    gap: 1vh;
+    margin-left: 3vh;
 }
 
 .todo-content-right {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 1vh;
+    display: flex;
+    align-items: center; 
+    gap: 1vh;
+    margin-right: 3vh;
 }
 
 .todo-icon {
-	color: var(--clr-text-light-gray);
-	font-size: 1.05rem;
-}
-
-.todo-info {
-	color: var(--clr-text-dark);
-}
-
-.todo-icon-container {
-	height: 3.5vh;
-	width: 3.5vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 5px;
-}
-
-.todo-icon-container:hover {
-	background-color: rgba(0, 0, 0, 0.1);
+    color: var(--clr-text-light-gray);
+    font-size: 1.05rem;
 }
 
 .todo-icons {
-	display: flex;
+    display: flex;
 }
+
+.todo-info {
+    color: var(--clr-text-dark);
+}
+
+.todo-icon-container {
+    height: 3.2vh;
+    width: 3.2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.todo-icon-container:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,

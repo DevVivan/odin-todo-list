@@ -76,7 +76,7 @@ export function createTodos() {
     })
 }
 
-projects[0].todos.push(new Todo('hi', 'hi'), new Todo('bye', 'bye'))
+projects[0].todos.push(new Todo('hi', 'hihihihihi', '2023/8/5', 1, 'hi'), new Todo('byebyebye', 'byebyebyebye', '2023/8/7',  'bye'))
  
 createModalForms()
 createProjects()
