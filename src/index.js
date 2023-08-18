@@ -1,7 +1,8 @@
 import { Project } from './project'
 import { Todo } from './todo'
 import './assets/styles/style.css'
-import { createContentUsingDOM } from './dom';
+import { createProjectsWithDOM } from './dom';
+import { createTodosWithDOM } from './dom';
 
 let projects = [new Project('Web Development'), new Project('School')];
 const newProjectForm = document.querySelector('.new-project-form');
@@ -12,6 +13,7 @@ const newProjectModal = document.querySelector('.new-project-modal');
 const newTodoModal = document.querySelector('.new-todo-modal');
 const createTodoButton = document.querySelector('.create-todo-button');
 const projectTab = document.querySelector('.project-tab');
+const mainContainer = document.querySelector('.main-container');
 
 export function createModalForms() {
     // Modal for new projects
@@ -52,7 +54,7 @@ export function createProjects() {
         let projectName = document.getElementById("project-name").value;
         projects.push(new Project(projectName))
         projectTabs.innerHTML = '';
-        createContentUsingDOM(projects);
+        createProjectsWithDOM(projects);
     })
 }
 
@@ -72,13 +74,14 @@ export function createTodos() {
             activeProject.addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
             projectTabs.innerHTML = '';
             
-            let activeProjectTodoTabs = document.querySelector('.project-tab.active .todo-tabs');
+            let activeProjectTodoTabs = document.querySelector('.project-tab.active');
             if (activeProjectTodoTabs) {
                 activeProjectTodoTabs.innerHTML = '';
             }
 
-            // change todo tabs for active project innerhtml to ' ';
-            createContentUsingDOM(projects);
+            //add classlist of 'active' to project tab which is active and has current-tab class
+            createProjectsWithDOM(projects)
+            createTodosWithDOM(activeProject, mainContainer)
         }
     })
 }
@@ -89,4 +92,4 @@ projects[0].todos.push(new Todo('hi', 'hihihihihi', '2023/8/5', 1, 'hi'), new To
 createModalForms()
 createProjects()
 createTodos()
-createContentUsingDOM(projects);
+createProjectsWithDOM(projects);

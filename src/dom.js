@@ -1,11 +1,10 @@
-import { Project } from './project'
-import { Todo } from './todo'
-import './assets/styles/style.css'
+import { Project } from './project';
+import { Todo } from './todo';
+import './assets/styles/style.css';
 import { createModalForms } from '.';
 
-export function createContentUsingDOM(projects) {
+export function createProjectsWithDOM(projects) {
     const projectTabs = document.querySelector('.project-tabs');
-    const projectTabElements = projectTabs.querySelectorAll('.project-tab');
     const mainContainer = document.querySelector('.main-container');
 
     projects.forEach(project => {
@@ -19,57 +18,43 @@ export function createContentUsingDOM(projects) {
         projectTab.appendChild(projectTitle);
         projectTabs.appendChild(projectTab);
 
-        projectTab.addEventListener('click', (event) => {
-            const clickedProjectTab = event.currentTarget;
-
-            projectTabElements.forEach(tab => {
+        projectTab.addEventListener('click', () => {
+            projectTabs.querySelectorAll('.project-tab').forEach(tab => {
                 tab.classList.remove('current-project');
             });
 
-            clickedProjectTab.classList.add('current-project');
-
-            const clickedProject = projects.find(p => p.getName() === project.getName())
-            projects.forEach(otherProject => {
-                if (otherProject.getName() !== clickedProject.getName()) {
-                    otherProject.setActive(false)
-                }
-            });
-            clickedProject.setActive(true);
+            projectTab.classList.add('current-project');
 
             mainContainer.innerHTML = '';
 
             let contentHeaderContainer = document.createElement('div');
-            contentHeaderContainer.classList.add('content-header-container')
+            contentHeaderContainer.classList.add('content-header-container');
             mainContainer.appendChild(contentHeaderContainer);
 
             let contentTitle = document.createElement('h1');
-            contentTitle.classList.add('content-title')
+            contentTitle.classList.add('content-title');
             contentTitle.textContent = project.getName();
             contentHeaderContainer.appendChild(contentTitle);
 
             let newTodoContainer = document.createElement('div');
-            newTodoContainer.classList.add('new-todo-container')
+            newTodoContainer.classList.add('new-todo-container');
             contentHeaderContainer.appendChild(newTodoContainer);
 
-            let newTodoIcon = document.createElement('i')
-            newTodoIcon.classList.add('fa-solid')
-            newTodoIcon.classList.add('fa-plus')
-            newTodoIcon.classList.add('fa-lg')
-            newTodoIcon.classList.add('fa-2x')
-            newTodoIcon.classList.add('new-todo-button')
+            let newTodoIcon = document.createElement('i');
+            newTodoIcon.classList.add('fa-solid', 'fa-plus', 'fa-lg', 'fa-2x', 'new-todo-button');
             newTodoContainer.appendChild(newTodoIcon);
 
             let contentHr = document.createElement('hr');
-            contentHr.classList.add('content-hr')
+            contentHr.classList.add('content-hr');
             mainContainer.appendChild(contentHr);
 
             createModalForms();
-            createTodos(project, mainContainer);
+            createTodosWithDOM(project, mainContainer);
         });
     });
 }
 
-function createTodos(project, mainContainer) {
+export function createTodosWithDOM(project, mainContainer) {
     const todoTabs = document.createElement('div');
     todoTabs.classList.add('todo-tabs');
     mainContainer.appendChild(todoTabs);
@@ -114,9 +99,7 @@ function createTodos(project, mainContainer) {
         todoIcons.appendChild(todoIconContainerEdit)
 
         let todoIconEdit = document.createElement('i')
-        todoIconEdit.classList.add('fa-solid')
-        todoIconEdit.classList.add('fa-pen-to-square')
-        todoIconEdit.classList.add('todo-icon')
+        todoIconEdit.classList.add('fa-solid', 'fa-pen-to-square', 'todo-icon');
         todoIconContainerEdit.appendChild(todoIconEdit)
 
         let todoIconContainerDelete = document.createElement('div')
@@ -124,9 +107,7 @@ function createTodos(project, mainContainer) {
         todoIcons.appendChild(todoIconContainerDelete)
 
         let todoIconDelete = document.createElement('i')
-        todoIconDelete.classList.add('fa-solid')
-        todoIconDelete.classList.add('fa-trash-can')
-        todoIconDelete.classList.add('todo-icon')
+        todoIconDelete.classList.add('fa-solid', 'fa-trash-can', 'todo-icon');
         todoIconContainerDelete.appendChild(todoIconDelete)
     });
 }
