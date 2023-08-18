@@ -92,12 +92,6 @@ export function createContentUsingDOM(projects) {
                     todoTitle.textContent = todo.title;
                     todoContentLeft.appendChild(todoTitle)
 
-                    // <p class="todo-due-date todo-info">29/7/2023</p>
-                    // <div class="todo-icons">
-                    //     <div class="todo-icon-container"><i class="fa-solid fa-pen-to-square todo-icon"></i></div>
-                    //     <div class="todo-icon-container"><i class="fa-solid fa-trash-can todo-icon"></i></div>
-                    // </div>
-                   
                     let todoDueDate = document.createElement('p')
                     todoDueDate.classList.add('todo-due-date')
                     todoDueDate.classList.add('todo-info')
@@ -105,6 +99,7 @@ export function createContentUsingDOM(projects) {
                     todoContentRight.appendChild(todoDueDate)
 
                     let todoIcons = document.createElement('div')
+                    todoIcons.classList.add('todo-icons');
                     todoContentRight.appendChild(todoIcons)
 
                     let todoIconContainerEdit = document.createElement('div')
