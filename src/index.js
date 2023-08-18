@@ -71,6 +71,12 @@ export function createTodos() {
         if (activeProject) {
             activeProject.addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
             projectTabs.innerHTML = '';
+            
+            let activeProjectTodoTabs = document.querySelector('.project-tab.active .todo-tabs');
+            if (activeProjectTodoTabs) {
+                activeProjectTodoTabs.innerHTML = '';
+            }
+
             // change todo tabs for active project innerhtml to ' ';
             createContentUsingDOM(projects);
         }

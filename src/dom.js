@@ -5,7 +5,9 @@ import { createModalForms } from '.';
 
 export function createContentUsingDOM(projects) {
     const projectTabs = document.querySelector('.project-tabs');
-    
+    const projectTabElements = projectTabs.querySelectorAll('.project-tab');
+    const mainContainer = document.querySelector('.main-container');
+
     projects.forEach(project => {
         const projectTab = document.createElement('div');
         projectTab.className = 'project-tab';
@@ -17,8 +19,16 @@ export function createContentUsingDOM(projects) {
         projectTab.appendChild(projectTitle);
         projectTabs.appendChild(projectTab);
 
-        projectTab.addEventListener('click', () => {
-            const clickedProject = projects.find(p => p.getName() === project.getName());
+        projectTab.addEventListener('click', (event) => {
+            const clickedProjectTab = event.currentTarget;
+
+            projectTabElements.forEach(tab => {
+                tab.classList.remove('current-project');
+            });
+
+            clickedProjectTab.classList.add('current-project');
+
+            const clickedProject = projects.find(p => p.getName() === project.getName())
             projects.forEach(otherProject => {
                 if (otherProject.getName() !== clickedProject.getName()) {
                     otherProject.setActive(false)
@@ -26,8 +36,7 @@ export function createContentUsingDOM(projects) {
             });
             clickedProject.setActive(true);
 
-            let mainContainer = document.querySelector('.main-container');
-            mainContainer.innerHTML = ''
+            mainContainer.innerHTML = '';
 
             let contentHeaderContainer = document.createElement('div');
             contentHeaderContainer.classList.add('content-header-container')
@@ -55,74 +64,69 @@ export function createContentUsingDOM(projects) {
             mainContainer.appendChild(contentHr);
 
             createModalForms();
+            createTodos(project, mainContainer);
+        });
+    });
+}
 
-            // remove the current-project classlist from all projects
-            // whichever project was clicked, add the classlist of current-project to it
+function createTodos(project, mainContainer) {
+    const todoTabs = document.createElement('div');
+    todoTabs.classList.add('todo-tabs');
+    mainContainer.appendChild(todoTabs);
 
-            (function createTodos() {
-                project.todos.forEach(todo => {
-                    let todoTabs = document.querySelector('.todo-tabs');
-                    if (!todoTabs) {
-                        todoTabs = document.createElement('div');
-                        todoTabs.classList.add('todo-tabs');
-                        mainContainer.appendChild(todoTabs);
-                    }
+    project.todos.forEach(todo => {
+        let todoTab = document.createElement('div');
+        todoTab.classList.add('todo-tab');
+        todoTabs.appendChild(todoTab);
 
-                    let todoTab = document.createElement('div');
-                    todoTab.classList.add('todo-tab');
-                    todoTabs.appendChild(todoTab);
+        let todoContentLeft = document.createElement('div')
+        todoContentLeft.classList.add('todo-content-left')
+        todoTab.appendChild(todoContentLeft);
 
-                    let todoContentLeft = document.createElement('div')
-                    todoContentLeft.classList.add('todo-content-left')
-                    todoTab.appendChild(todoContentLeft);
+        let todoContentRight = document.createElement('div')
+        todoContentRight.classList.add('todo-content-right')
+        todoTab.appendChild(todoContentRight);
 
-                    let todoContentRight = document.createElement('div')
-                    todoContentRight.classList.add('todo-content-right')
-                    todoTab.appendChild(todoContentRight);
+        let todoCompletedCheckbox = document.createElement('input');
+        todoCompletedCheckbox.setAttribute('type', 'checkbox')
+        todoCompletedCheckbox.setAttribute('name', 'todo-completed-checkbox')
+        todoCompletedCheckbox.classList.add('todo-completed-checkbox')
+        todoContentLeft.appendChild(todoCompletedCheckbox)   
 
-                    let todoCompletedCheckbox = document.createElement('input');
-                    todoCompletedCheckbox.setAttribute('type', 'checkbox')
-                    todoCompletedCheckbox.setAttribute('name', 'todo-completed-checkbox')
-                    todoCompletedCheckbox.classList.add('todo-completed-checkbox')
-                    todoContentLeft.appendChild(todoCompletedCheckbox)   
+        let todoTitle = document.createElement('p')
+        todoTitle.classList.add('todo-title')
+        todoTitle.classList.add('todo-info')
+        todoTitle.textContent = todo.title;
+        todoContentLeft.appendChild(todoTitle)
 
-                    let todoTitle = document.createElement('p')
-                    todoTitle.classList.add('todo-title')
-                    todoTitle.classList.add('todo-info')
-                    todoTitle.textContent = todo.title;
-                    todoContentLeft.appendChild(todoTitle)
+        let todoDueDate = document.createElement('p')
+        todoDueDate.classList.add('todo-due-date')
+        todoDueDate.classList.add('todo-info')
+        todoDueDate.textContent = todo.dueDate;
+        todoContentRight.appendChild(todoDueDate)
 
-                    let todoDueDate = document.createElement('p')
-                    todoDueDate.classList.add('todo-due-date')
-                    todoDueDate.classList.add('todo-info')
-                    todoDueDate.textContent = todo.dueDate;
-                    todoContentRight.appendChild(todoDueDate)
+        let todoIcons = document.createElement('div')
+        todoIcons.classList.add('todo-icons');
+        todoContentRight.appendChild(todoIcons)
 
-                    let todoIcons = document.createElement('div')
-                    todoIcons.classList.add('todo-icons');
-                    todoContentRight.appendChild(todoIcons)
+        let todoIconContainerEdit = document.createElement('div')
+        todoIconContainerEdit.classList.add('todo-icon-container')
+        todoIcons.appendChild(todoIconContainerEdit)
 
-                    let todoIconContainerEdit = document.createElement('div')
-                    todoIconContainerEdit.classList.add('todo-icon-container')
-                    todoIcons.appendChild(todoIconContainerEdit)
+        let todoIconEdit = document.createElement('i')
+        todoIconEdit.classList.add('fa-solid')
+        todoIconEdit.classList.add('fa-pen-to-square')
+        todoIconEdit.classList.add('todo-icon')
+        todoIconContainerEdit.appendChild(todoIconEdit)
 
-                    let todoIconEdit = document.createElement('i')
-                    todoIconEdit.classList.add('fa-solid')
-                    todoIconEdit.classList.add('fa-pen-to-square')
-                    todoIconEdit.classList.add('todo-icon')
-                    todoIconContainerEdit.appendChild(todoIconEdit)
+        let todoIconContainerDelete = document.createElement('div')
+        todoIconContainerDelete.classList.add('todo-icon-container')
+        todoIcons.appendChild(todoIconContainerDelete)
 
-                    let todoIconContainerDelete = document.createElement('div')
-                    todoIconContainerDelete.classList.add('todo-icon-container')
-                    todoIcons.appendChild(todoIconContainerDelete)
-
-                    let todoIconDelete = document.createElement('i')
-                    todoIconDelete.classList.add('fa-solid')
-                    todoIconDelete.classList.add('fa-trash-can')
-                    todoIconDelete.classList.add('todo-icon')
-                    todoIconContainerDelete.appendChild(todoIconDelete)
-                })
-            })()
-        })
+        let todoIconDelete = document.createElement('i')
+        todoIconDelete.classList.add('fa-solid')
+        todoIconDelete.classList.add('fa-trash-can')
+        todoIconDelete.classList.add('todo-icon')
+        todoIconContainerDelete.appendChild(todoIconDelete)
     });
 }
