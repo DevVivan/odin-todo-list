@@ -63,22 +63,21 @@ export function createTodos() {
         let todoDueDate = document.getElementById("todo-due-date").value;
         let todoPriority = document.getElementById("todo-priority").value;
         let todoProject = document.getElementById("todo-project").value;
-        
+
         let activeProject = projects.find(project => project.active);
-        
-        if (activeProject) {
-            activeProject.addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
-            let activeProjectTodoTabs = mainContainer.querySelector('.todo-tabs');
-            todoTabs.innerHTML = ''
-            activeProjectTodoTabs.innerHTML = '';
-            createTodosWithDOM(activeProject, mainContainer); 
-        }
+        activeProject.addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
+
+        let activeProjectTodoTabs = mainContainer.querySelector('.todo-tabs');
+        activeProjectTodoTabs.innerHTML = '';
+        createTodosWithDOM(activeProject, mainContainer);
+        activeProjectTodoTabs.style.marginTop = '0';
     });
 }
 
+
 projects[0].todos.push(new Todo('hi', 'hihihihihi', '2023/8/5', 1, 'hi'), new Todo('byebyebye', 'byebyebyebye', '2023/8/7',  'bye'));
  
+createProjectsWithDOM(projects);
 createModalForms();
 createProjects();
 createTodos();
-createProjectsWithDOM(projects);
