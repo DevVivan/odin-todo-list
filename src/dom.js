@@ -8,6 +8,8 @@ export function createProjectsWithDOM(projects) {
     const defaultTabs = document.querySelector('.default-tabs');
     const mainContainer = document.querySelector('.main-container');
 
+    defaultTabs.innerHTML = '';
+
     for (let i = 0; i < 2; i++) {
         const projectTab = document.createElement('div');
         projectTab.className = 'project-tab';
@@ -78,11 +80,11 @@ export function createProjectsWithDOM(projects) {
             projectTabs.appendChild(projectTab);
     
             projectTab.addEventListener('click', () => {
-                defaultTabs.querySelectorAll('.project-tab').forEach(tab => {
+                projectTabs.querySelectorAll('.project-tab').forEach(tab => {
                     tab.classList.remove('current-project', 'active');
                 });
 
-                projectTabs.querySelectorAll('.project-tab').forEach(tab => {
+                defaultTabs.querySelectorAll('.project-tab').forEach(tab => {
                     tab.classList.remove('current-project', 'active');
                 });
             
@@ -121,6 +123,10 @@ export function createProjectsWithDOM(projects) {
                 createModalForms();
                 createTodosWithDOM(project, mainContainer);
             });
+        }
+
+        window.onload = function makeInboxProjectActive() {
+            console.log('hi')
         }
     });
 }

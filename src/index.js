@@ -64,6 +64,7 @@ export function createTodos() {
         let todoProject = document.getElementById("todo-project").value;
         
         let activeProject = projects.find(project => project.active);
+        projects[0].addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
         activeProject.addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
         
         let activeProjectTodoTabs = mainContainer.querySelector('.todo-tabs');
@@ -72,12 +73,6 @@ export function createTodos() {
         newTodoModal.close();
     });
 }
-
-
-
-
-
-projects[0].todos.push(new Todo('hi', 'hihihihihi', '2023/8/5', 1, 'hi'), new Todo('byebyebye', 'byebyebyebye', '2023/8/7',  'bye'));
  
 createProjectsWithDOM(projects);
 createModalForms();
