@@ -67,21 +67,8 @@ export function createTodos() {
         activeProject.addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
         
         let activeProjectTodoTabs = mainContainer.querySelector('.todo-tabs');
-        
-        console.log("Active Project Todo Tabs (Before removing):", activeProjectTodoTabs);
-        console.log("Before removing: ", activeProjectTodoTabs.children.length);
-        
-        // Remove the entire .todo-tabs element
         activeProjectTodoTabs.remove();
-        
-        console.log("After removing: ", mainContainer.querySelector('.todo-tabs'));
-        
-        // Re-create todo tabs
         createTodosWithDOM(activeProject, mainContainer);
-        
-        console.log("After recreating: ", mainContainer.querySelector('.todo-tabs'));
-        
-        // Close the todo modal
         newTodoModal.close();
     });
 }
