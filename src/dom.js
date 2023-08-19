@@ -119,14 +119,22 @@ export function createProjectsWithDOM(projects) {
                 let contentHr = document.createElement('hr');
                 contentHr.classList.add('content-hr');
                 mainContainer.appendChild(contentHr);
-    
+
                 createModalForms();
                 createTodosWithDOM(project, mainContainer);
             });
         }
 
         window.onload = function makeInboxProjectActive() {
-            console.log('hi')
+            const projectTabs = document.querySelectorAll('.project-tab');
+            for (const projectTab of projectTabs) {
+                const projectName = projectTab.querySelector('.project-sidebar-title').textContent;        
+                if (projectName === 'Inbox') {
+                    projectTab.classList.add('current-project', 'active');
+                    projectTab.click();
+                    break;
+                }
+            }
         }
     });
 }
