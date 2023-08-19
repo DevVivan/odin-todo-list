@@ -5,32 +5,33 @@ import { createModalForms } from '.';
 
 export function createProjectsWithDOM(projects) {
     const projectTabs = document.querySelector('.project-tabs');
+    const defaultTabs = document.querySelector('.default-tabs');
     const mainContainer = document.querySelector('.main-container');
 
-    projects.forEach(project => {
+    for (let i = 0; i < 2; i++) {
         const projectTab = document.createElement('div');
         projectTab.className = 'project-tab';
-        
+
         const projectTitle = document.createElement('h3');
         projectTitle.className = 'project-sidebar-title';
-        projectTitle.textContent = project.getName();
-        
+        projectTitle.textContent = projects[i].getName();
+
         projectTab.appendChild(projectTitle);
-        projectTabs.appendChild(projectTab);
+        defaultTabs.appendChild(projectTab);
 
         projectTab.addEventListener('click', () => {
             projectTabs.querySelectorAll('.project-tab').forEach(tab => {
                 tab.classList.remove('current-project', 'active');
             });
-        
+
             projectTab.classList.add('current-project', 'active');
 
             projects.forEach(otherProject => {
-                if (otherProject !== project) {
+                if (otherProject !== projects[i]) {
                     otherProject.setActive(false);
                 }
             });
-            project.setActive(true);
+            projects[i].setActive(true);
 
             mainContainer.innerHTML = '';
 
@@ -40,7 +41,7 @@ export function createProjectsWithDOM(projects) {
 
             let contentTitle = document.createElement('h1');
             contentTitle.classList.add('content-title');
-            contentTitle.textContent = project.getName();
+            contentTitle.textContent = projects[i].getName();
             contentHeaderContainer.appendChild(contentTitle);
 
             let newTodoContainer = document.createElement('div');
@@ -56,8 +57,63 @@ export function createProjectsWithDOM(projects) {
             mainContainer.appendChild(contentHr);
 
             createModalForms();
-            createTodosWithDOM(project, mainContainer);
+            createTodosWithDOM(projects[i], mainContainer);
         });
+    }
+
+    projects.forEach(project => {
+        if (project.getName() !== 'Inbox' && project.getName() !== 'Completed') {
+            const projectTab = document.createElement('div');
+            projectTab.className = 'project-tab';
+            
+            const projectTitle = document.createElement('h3');
+            projectTitle.className = 'project-sidebar-title';
+            projectTitle.textContent = project.getName();
+            
+            projectTab.appendChild(projectTitle);
+            projectTabs.appendChild(projectTab);
+    
+            projectTab.addEventListener('click', () => {
+                projectTabs.querySelectorAll('.project-tab').forEach(tab => {
+                    tab.classList.remove('current-project', 'active');
+                });
+            
+                projectTab.classList.add('current-project', 'active');
+    
+                projects.forEach(otherProject => {
+                    if (otherProject !== project) {
+                        otherProject.setActive(false);
+                    }
+                });
+                project.setActive(true);
+    
+                mainContainer.innerHTML = '';
+    
+                let contentHeaderContainer = document.createElement('div');
+                contentHeaderContainer.classList.add('content-header-container');
+                mainContainer.appendChild(contentHeaderContainer);
+    
+                let contentTitle = document.createElement('h1');
+                contentTitle.classList.add('content-title');
+                contentTitle.textContent = project.getName();
+                contentHeaderContainer.appendChild(contentTitle);
+    
+                let newTodoContainer = document.createElement('div');
+                newTodoContainer.classList.add('new-todo-container');
+                contentHeaderContainer.appendChild(newTodoContainer);
+    
+                let newTodoIcon = document.createElement('i');
+                newTodoIcon.classList.add('fa-solid', 'fa-plus', 'fa-lg', 'fa-2x', 'new-todo-button');
+                newTodoContainer.appendChild(newTodoIcon);
+    
+                let contentHr = document.createElement('hr');
+                contentHr.classList.add('content-hr');
+                mainContainer.appendChild(contentHr);
+    
+                createModalForms();
+                createTodosWithDOM(project, mainContainer);
+            });
+        }
     });
 }
 
