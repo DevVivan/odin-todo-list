@@ -56,23 +56,38 @@ export function createProjects() {
 
 export function createTodos() {
     newTodoForm.addEventListener('submit', (event) => {
-        newTodoModal.close();
         event.preventDefault();
         let todoTitle = document.getElementById("todo-title").value;
         let todoDescription = document.getElementById("todo-description").value;
         let todoDueDate = document.getElementById("todo-due-date").value;
         let todoPriority = document.getElementById("todo-priority").value;
         let todoProject = document.getElementById("todo-project").value;
-
+        
         let activeProject = projects.find(project => project.active);
         activeProject.addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
-
+        
         let activeProjectTodoTabs = mainContainer.querySelector('.todo-tabs');
-        activeProjectTodoTabs.innerHTML = '';
+        
+        console.log("Active Project Todo Tabs (Before removing):", activeProjectTodoTabs);
+        console.log("Before removing: ", activeProjectTodoTabs.children.length);
+        
+        // Remove the entire .todo-tabs element
+        activeProjectTodoTabs.remove();
+        
+        console.log("After removing: ", mainContainer.querySelector('.todo-tabs'));
+        
+        // Re-create todo tabs
         createTodosWithDOM(activeProject, mainContainer);
-        activeProjectTodoTabs.style.marginTop = '0';
+        
+        console.log("After recreating: ", mainContainer.querySelector('.todo-tabs'));
+        
+        // Close the todo modal
+        newTodoModal.close();
     });
 }
+
+
+
 
 
 projects[0].todos.push(new Todo('hi', 'hihihihihi', '2023/8/5', 1, 'hi'), new Todo('byebyebye', 'byebyebyebye', '2023/8/7',  'bye'));
