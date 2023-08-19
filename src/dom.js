@@ -24,6 +24,10 @@ export function createProjectsWithDOM(projects) {
                 tab.classList.remove('current-project', 'active');
             });
 
+            defaultTabs.querySelectorAll('.project-tab').forEach(tab => {
+                tab.classList.remove('current-project', 'active');
+            });
+
             projectTab.classList.add('current-project', 'active');
 
             projects.forEach(otherProject => {
@@ -74,6 +78,10 @@ export function createProjectsWithDOM(projects) {
             projectTabs.appendChild(projectTab);
     
             projectTab.addEventListener('click', () => {
+                defaultTabs.querySelectorAll('.project-tab').forEach(tab => {
+                    tab.classList.remove('current-project', 'active');
+                });
+
                 projectTabs.querySelectorAll('.project-tab').forEach(tab => {
                     tab.classList.remove('current-project', 'active');
                 });
