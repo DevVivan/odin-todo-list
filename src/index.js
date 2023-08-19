@@ -4,7 +4,7 @@ import './assets/styles/style.css';
 import { createProjectsWithDOM } from './dom';
 import { createTodosWithDOM } from './dom';
 
-let projects = [new Project('Web Development'), new Project('School')];
+let projects = [new Project('Web Development')];
 const newProjectForm = document.querySelector('.new-project-form');
 const newTodoForm = document.querySelector('.new-todo-form');
 const projectTabs = document.querySelector('.project-tabs');
