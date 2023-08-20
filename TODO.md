@@ -4,10 +4,11 @@ This markdown file serves as a todo list, well, for my todo list project! It aid
 
 ## JavaScript Todo's
 
-- [ ] Create Inbox & Completed projects through JS and integrate using DOM.
-- [ ] Refactor todo `priority` and `project` dropdowns from modal to be created using JavaScript as opposed to HTML.
+- [ ] Work on logic for completing todo and adding to completed todo array
+- [x] Create Inbox & Completed projects through JS and integrate using DOM.
+- [x] Refactor todo `priority` and `project` dropdowns from modal to be created using JavaScript as opposed to HTML.
 - [x] Create todos using data.
-- [ ] DOM creation for todos.
+- [x] DOM creation for todos.
 - [x] Project switching logic.
 - [ ] Create logic to change color for different todo priorities.
 - [ ] Utilise the `date-fns` external library to format dates and times.
