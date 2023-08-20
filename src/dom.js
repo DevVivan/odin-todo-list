@@ -196,3 +196,16 @@ export function createTodosWithDOM(project, mainContainer) {
         todoIconContainerDelete.appendChild(todoIconDelete)
     });
 }
+
+export function createProjectOptionsInModal(projects) {
+    let todoProjectOptions = document.querySelector('.todo-project-options');
+    
+    const filteredProjects = projects.filter(project => project.getName() !== 'Inbox' && project.getName() !== 'Completed');
+
+    filteredProjects.forEach(project => {
+        let projectOption = document.createElement('option');
+        projectOption.setAttribute('value', project.getName())
+        projectOption.textContent = project.getName()
+        todoProjectOptions.appendChild(projectOption)
+    })
+}

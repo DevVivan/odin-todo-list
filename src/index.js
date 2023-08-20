@@ -3,6 +3,7 @@ import { Todo } from './todo';
 import './assets/styles/style.css';
 import { createProjectsWithDOM } from './dom';
 import { createTodosWithDOM } from './dom';
+import { createProjectOptionsInModal } from './dom';
 
 let projects = [new Project('Inbox'), new Project('Completed'), new Project('Web Development')];
 const newProjectForm = document.querySelector('.new-project-form');
@@ -62,14 +63,10 @@ export function createTodos() {
         let todoDueDate = document.getElementById("todo-due-date").value;
         let todoPriority = document.getElementById("todo-priority").value;
         let todoProject = document.getElementById("todo-project").value;
-        
-        let activeProject = projects.find(project => project.active);
-        if (activeProject.getName() === 'Inbox') {
-            activeProject.addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
-        } else {
-            activeProject.addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
-            projects[0].addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
-        }
+
+        let activeProject = projects.find(project => project.isActive());
+        let namedProject = projects.find(project => project.getName() === todoProject);
+        namedProject.addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
         
         let activeProjectTodoTabs = mainContainer.querySelector('.todo-tabs');
         activeProjectTodoTabs.remove();
@@ -77,7 +74,8 @@ export function createTodos() {
         newTodoModal.close();
     });
 }
- 
+
+createProjectOptionsInModal(projects)
 createProjectsWithDOM(projects);
 createModalForms();
 createProjects();
