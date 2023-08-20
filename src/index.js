@@ -15,6 +15,7 @@ const newTodoModal = document.querySelector('.new-todo-modal');
 const createTodoButton = document.querySelector('.create-todo-button');
 const projectTab = document.querySelector('.project-tab');
 const mainContainer = document.querySelector('.main-container');
+let todoProjectOptions = document.querySelector('.todo-project-options');
 
 export function createModalForms() {
     const newProjectButton = document.querySelector('.new-project-button');
@@ -52,6 +53,8 @@ export function createProjects() {
         projects.push(new Project(projectName));
         projectTabs.innerHTML = '';
         createProjectsWithDOM(projects);
+        todoProjectOptions.innerHTML = '';
+        createProjectOptionsInModal(projects)
     });
 }
 
@@ -67,6 +70,7 @@ export function createTodos() {
         let activeProject = projects.find(project => project.isActive());
         let namedProject = projects.find(project => project.getName() === todoProject);
         namedProject.addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
+        projects[0].addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
         
         let activeProjectTodoTabs = mainContainer.querySelector('.todo-tabs');
         activeProjectTodoTabs.remove();
