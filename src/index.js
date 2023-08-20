@@ -49,12 +49,19 @@ export function createProjects() {
     newProjectForm.addEventListener('submit', (event) => {
         newProjectModal.close();
         event.preventDefault();
+
         let projectName = document.getElementById("project-name").value;
         projects.push(new Project(projectName));
+
         projectTabs.innerHTML = '';
         createProjectsWithDOM(projects);
         todoProjectOptions.innerHTML = '';
         createProjectOptionsInModal(projects)
+
+        let newProjectTab = document.querySelector(`[data-project="${projectName}"]`);
+        if (newProjectTab) {
+            newProjectTab.click();
+        }
     });
 }
 
@@ -70,8 +77,14 @@ export function createTodos() {
         let activeProject = projects.find(project => project.isActive());
         let namedProject = projects.find(project => project.getName() === todoProject);
         namedProject.addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
+
+        let projectTabToClick = document.querySelector(`.project-tab[data-project="${todoProject}"]`);
+        if (projectTabToClick) {
+            projectTabToClick.click();
+        }
+
         projects[0].addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
-        
+
         let activeProjectTodoTabs = mainContainer.querySelector('.todo-tabs');
         activeProjectTodoTabs.remove();
         createTodosWithDOM(activeProject, mainContainer);

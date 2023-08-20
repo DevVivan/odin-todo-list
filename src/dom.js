@@ -13,6 +13,7 @@ export function createProjectsWithDOM(projects) {
     for (let i = 0; i < 2; i++) {
         const projectTab = document.createElement('div');
         projectTab.className = 'project-tab';
+        projectTab.setAttribute('data-project', projects[i].getName());
 
         const projectTitle = document.createElement('h3');
         projectTitle.className = 'project-sidebar-title';
@@ -71,6 +72,7 @@ export function createProjectsWithDOM(projects) {
         if (project.getName() !== 'Inbox' && project.getName() !== 'Completed') {
             const projectTab = document.createElement('div');
             projectTab.className = 'project-tab';
+            projectTab.setAttribute('data-project', project.getName());
             
             const projectTitle = document.createElement('h3');
             projectTitle.className = 'project-sidebar-title';
