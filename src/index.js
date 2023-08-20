@@ -64,8 +64,12 @@ export function createTodos() {
         let todoProject = document.getElementById("todo-project").value;
         
         let activeProject = projects.find(project => project.active);
-        projects[0].addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
-        activeProject.addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
+        if (activeProject.getName() === 'Inbox') {
+            activeProject.addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
+        } else {
+            activeProject.addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
+            projects[0].addTodo(new Todo(todoTitle, todoDescription, todoDueDate, todoPriority, todoProject));
+        }
         
         let activeProjectTodoTabs = mainContainer.querySelector('.todo-tabs');
         activeProjectTodoTabs.remove();
