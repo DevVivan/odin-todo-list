@@ -89,6 +89,13 @@ export function createTodos() {
         activeProjectTodoTabs.remove();
         createTodosWithDOM(activeProject, mainContainer);
         newTodoModal.close();
+        let todoCompletedCheckbox = document.querySelector('.todo-completed-checkbox')
+
+        todoCompletedCheckbox.addEventListener('click', (event) => {
+            const todoId = event.target.dataset.todoId;
+            const clickedTodo = activeProject.todos[todoId];
+            console.log(clickedTodo)
+        })
     });
 }
 

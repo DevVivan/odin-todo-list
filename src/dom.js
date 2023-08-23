@@ -146,7 +146,7 @@ export function createTodosWithDOM(project, mainContainer) {
     todoTabs.classList.add('todo-tabs');
     mainContainer.appendChild(todoTabs);
 
-    project.todos.forEach(todo => {
+    project.todos.forEach((todo, index) => {
         let todoTab = document.createElement('div');
         todoTab.classList.add('todo-tab');
         todoTabs.appendChild(todoTab);
@@ -163,6 +163,7 @@ export function createTodosWithDOM(project, mainContainer) {
         todoCompletedCheckbox.setAttribute('type', 'checkbox')
         todoCompletedCheckbox.setAttribute('name', 'todo-completed-checkbox')
         todoCompletedCheckbox.classList.add('todo-completed-checkbox')
+        todoCompletedCheckbox.dataset.todoId = index;
         todoContentLeft.appendChild(todoCompletedCheckbox)   
 
         let todoTitle = document.createElement('p')
