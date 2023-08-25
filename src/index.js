@@ -92,6 +92,24 @@ export function createTodos() {
     });
 }
 
+export function openEditTodoModal(todo, index) {
+    const editTodoModal = document.querySelector('.edit-todo-modal');
+    document.getElementById('edit-todo-title').value = todo.title;
+    document.getElementById('edit-todo-description').value = todo.description;
+    document.getElementById('edit-todo-due-date').value = todo.dueDate;
+    document.getElementById('edit-todo-priority').value = todo.priority;
+    editTodoModal.querySelector('.edit-todo-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        todo.title = document.getElementById('edit-todo-title').value;
+        todo.description = document.getElementById('edit-todo-description').value;
+        todo.dueDate = document.getElementById('edit-todo-due-date').value;
+        todo.priority = document.getElementById('edit-todo-priority').value;
+        editTodoModal.close();
+        createTodosWithDOM(project, mainContainer);
+    });
+    editTodoModal.showModal();
+}
+
 createProjectOptionsInModal(projects)
 createProjectsWithDOM(projects);
 createModalForms();

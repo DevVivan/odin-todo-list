@@ -2,6 +2,7 @@ import { Project } from './project';
 import { Todo } from './todo';
 import './assets/styles/style.css';
 import { createModalForms } from '.';
+import { openEditTodoModal } from '.';
 
 export function createProjectsWithDOM(projects) {
     const projectTabs = document.querySelector('.project-tabs');
@@ -190,6 +191,10 @@ export function createTodosWithDOM(project, mainContainer) {
         todoIconEdit.classList.add('fa-solid', 'fa-pen-to-square', 'todo-icon');
         todoIconContainerEdit.appendChild(todoIconEdit)
 
+        todoIconEdit.addEventListener('click', () => {
+            openEditTodoModal(project.todos[index], index);
+        });
+
         let todoIconContainerDelete = document.createElement('div')
         todoIconContainerDelete.classList.add('todo-icon-container')
         todoIcons.appendChild(todoIconContainerDelete)
@@ -212,3 +217,44 @@ export function createProjectOptionsInModal(projects) {
         todoProjectOptions.appendChild(projectOption)
     })
 }
+
+// Add this function to create the edit todo modal
+export function createEditTodoModal() {
+    const editTodoModal = document.createElement('dialog');
+    editTodoModal.className = 'edit-todo-modal modal';
+    editTodoModal.innerHTML = `
+        <div class="modal-content edit-todo-modal-content">
+            <span class="close-edit-todo-modal close-modal">&times;</span>
+            <h2>Edit Todo</h2>
+            <form class="edit-todo-form">
+                <label for="edit-todo-title">Title:</label>
+                <input type="text" id="edit-todo-title" required>
+
+                <label for="edit-todo-description">Description:</label>
+                <textarea id="edit-todo-description" rows="3"></textarea>
+
+                <label for="edit-todo-due-date">Due Date:</label>
+                <input type="date" id="edit-todo-due-date">
+
+                <label for="edit-todo-priority">Priority:</label>
+                <select id="edit-todo-priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+
+                <button type="submit" class="edit-todo-button">Save Changes</button>
+            </form>
+        </div>
+    `;
+
+    document.body.appendChild(editTodoModal);
+
+    // Close the modal when the close button is clicked
+    editTodoModal.querySelector('.close-edit-todo-modal').addEventListener('click', () => {
+        editTodoModal.close();
+    });
+}
+
+// Call the function to create the edit todo modal
+createEditTodoModal()
